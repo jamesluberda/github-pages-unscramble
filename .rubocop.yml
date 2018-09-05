@@ -1,0 +1,40 @@
+inherit_gem:
+  jekyll: .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.1
+  Include:
+    - lib/**/*.rb
+
+  Exclude:
+    - .gitignore
+    - .rspec
+    - .rubocop.yml
+    - .travis.yml
+    - History.md
+    - Gemfile.lock
+    - LICENSE.txt
+    - README.md
+    - script/**/*
+    - scrap/**/*
+
+Lint/HandleExceptions:
+  Exclude:
+    - lib/jekyll/.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Metrics/LineLength:
+  Exclude:
+    - spec/**/*
+    - github-pages-unscramble.gemspec
+
+# has_key? and has_value? are more readable than key? and value?
+Style/PreferredHashMethods:
+  Enabled: false
+
+# select can be more readable than reject
+Style/InverseMethods:
+  Enabled: false
